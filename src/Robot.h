@@ -5,9 +5,6 @@
 #include "RobotMap.h"
 #include "Commands/Command.h"
 #include "LiveWindow/LiveWindow.h"
-#include "Subsystems/Drivetrain.h"
-#include "Subsystems/PixySubsystem.h"
-#include "Subsystems/Gear.h"
 #include "Subsystems/Shooter.h"
 #include "OI.h"
 //class declaration of the robot
@@ -18,13 +15,7 @@ public:
 	std::unique_ptr<Command> autonomousCommand;
 	static std::unique_ptr<OI> oi;
 	LiveWindow *lw = LiveWindow::GetInstance();
-
-	static std::shared_ptr<Drivetrain> drivetrain;
-
 	static frc::DriverStation::Alliance robotAlliance;
-
-	static std::shared_ptr<PixySubsystem> pixySubsystem;
-	static std::shared_ptr<Gear> gear;
 	static std::shared_ptr<Shooter> shooter;
 //declaration of robot class functions
 virtual void RobotInit();

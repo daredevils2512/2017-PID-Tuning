@@ -5,7 +5,6 @@
 #include "../RobotMap.h"
 #include "CANTalon.h"
 #include "../Nullable.h"
-#include "../Subsystems/PixySubsystem.h"
 
 
 class Shooter : public Subsystem {
@@ -30,7 +29,6 @@ public:
 	double GetSwivelPosition();
 	void ActuateHood(frc::DoubleSolenoid::Value direction);
 	bool IsHoodActuated();
-	double GetVirtualDistance(PixySubsystem::ObjectValues object);
 	//int GetVirtualDistance(Pixy::ObjectValues object);
 	void SaveShooterSpeed(double speed);
 	double GetShooterSpeed();

@@ -5,7 +5,6 @@
 #include "Talon.h"
 #include "CANTalon.h"
 #include "SPI.h"
-#include "Pixy.h"
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
