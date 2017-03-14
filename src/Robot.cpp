@@ -49,6 +49,11 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	//prints information to the smart dashboard
+	SmartDashboard::PutNumber("P Value",oi->valueP);
+	SmartDashboard::PutNumber("I Value",oi->valueI);
+	SmartDashboard::PutNumber("D Value",oi->valueD);
+	SmartDashboard::PutNumber("F Value",oi->valueF);
+	SmartDashboard::PutNumber("Increment",oi->incrementValue);
 }
 
 void Robot::TestPeriodic() {

@@ -37,6 +37,7 @@ public:
 	double GetY();
 	double getSelectedValue();
 	void updateSelectedValue(double val);
+	void modifyIncrementVal(double by);
 };
 
 #endif  // OI_H
