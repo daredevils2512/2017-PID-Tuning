@@ -26,7 +26,7 @@ private:
 
 public:
 	Joystick driverController{0};
-	double* toModify = &valueP;
+	int toModify = 0; // default to P
 	double valueP = 0.003;
 	double valueI = 0.12;
 	double valueD = 1.23;
@@ -35,6 +35,8 @@ public:
 	OI();
 	double GetX();
 	double GetY();
+	double getSelectedValue();
+	void updateSelectedValue(double val);
 };
 
 #endif  // OI_H
