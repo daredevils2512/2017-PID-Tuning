@@ -1,6 +1,6 @@
 #include "UpdatePIDValue.h"
 
-UpdatePIDValue::UpdatePIDValue(double incBy, bool isIncrementationValue) {
+UpdatePIDValue::UpdatePIDValue(long double incBy, bool isIncrementationValue) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	//this->type = type;
@@ -16,7 +16,7 @@ void UpdatePIDValue::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void UpdatePIDValue::Execute() {
 	if(isIncrementationValue){
-		Robot::oi->incrementValue =  Robot::oi->incrementValue * incBy;
+		Robot::oi->incrementValue *= incBy;
 		std::cout << "HALP: " << incBy << std::endl;
 	}else{
 		double current = Robot::oi->getSelectedValue();
@@ -31,6 +31,10 @@ void UpdatePIDValue::Execute() {
 	std::cout << "D: " << Robot::oi->valueD << std::endl;
 	std::cout << "F: " << Robot::oi->valueF << std::endl;
 	std::cout << "-------------------" << std::endl;
+	RobotMap::shooterLeftFlywheel->SetFeedbackDevice(CANTalon::FeedbackDevice::CtreMagEncoder_Relative);
+	RobotMap::shooterLeftFlywheel->SetPID(Robot::oi->valueP,Robot::oi->valueI,Robot::oi->valueD,Robot::oi->valueF);
+	RobotMap::shooterLeftFlywheel->SetControlMode(CANSpeedController::kSpeed);
+	RobotMap::shooterLeftFlywheel->Set(3800);
 }
 
 // Make this return true when this Command no longer needs to run execute()

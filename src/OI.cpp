@@ -3,6 +3,9 @@
 #include <WPILib.h>
 #include "Commands/UpdatePIDValue.h"
 #include "Commands/UpdateLastPressedPointer.h"
+#include "Commands/RunFlyNonPID.h"
+#include "Commands/ShooterRunBoosters.h"
+#include <algorithm>
 
 OI::OI() {
 	std::cout << "OI Init" << std::endl;
@@ -15,10 +18,15 @@ OI::OI() {
 	DRC_bButton.WhenReleased(new UpdateLastPressedPointer(2)); // D
 	DRC_aButton.WhenReleased(new UpdateLastPressedPointer(3)); // F
 	DRC_POV.WhenPressed(new UpdatePIDValue(incrementValue,false));
+	DRC_startButton.WhenPressed(new RunFlyNonPID(0));
+	DRC_selectButton.WhenPressed(new RunFlyNonPID(50));
+	DRC_rightTrigger.WhenPressed(new ShooterRunBoosters(0.9));
+	DRC_leftTrigger.WhenPressed(new ShooterRunBoosters(0.0));
+	//DRC_rightJoystickButton
 	// Process operator interface input here.'
 
 }
-double OI::getSelectedValue(){
+long double OI::getSelectedValue(){
 	switch(this->toModify){
 	case 0: //p
 		return valueP;
@@ -29,9 +37,10 @@ double OI::getSelectedValue(){
 	case 3: //f
 		return valueF;
 	}
-	return -1;
+	return -1.0;
 }
-void OI::updateSelectedValue(double val){
+void OI::updateSelectedValue(long double val){
+	val = std::min((long double)10.0,std::max((long double) 0.0,val));
 	switch(this->toModify){
 	case 0: //p
 		valueP = val; return;

@@ -6,6 +6,8 @@ Shooter::Shooter() : Subsystem("Shooter") {
 	//quick defines
 	leftFlywheel = RobotMap::shooterLeftFlywheel;
 	rightFlywheel = RobotMap::shooterRightFlywheel;
+	topBoosterWheel = RobotMap::shooterTopBoosterWheel;
+	bottomBoosterWheel = RobotMap::shooterBottomBoosterWheel;
 	spinCycleFeed = RobotMap::shooterSpinCycleFeed;
 	turretSwivel = RobotMap::shooterTurretSwivel;
 
@@ -49,6 +51,11 @@ void Shooter::SetSwivelSpeed(double speed){
 	//Set the speed to crank the swivel around at
 	turretSwivel->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
 	turretSwivel->Set(speed);
+}
+
+void Shooter::RunBoosters(double speed) {
+	topBoosterWheel->Set(speed);
+	bottomBoosterWheel->Set(-speed);
 }
 
 double Shooter::GetSwivelPosition() {

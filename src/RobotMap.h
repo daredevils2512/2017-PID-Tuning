@@ -25,29 +25,13 @@
 
 class RobotMap {
 public:
-	//4 speed controllers for drivetrain
-	static std::shared_ptr<Talon> drivetrainFrontLeftMotor;
-	static std::shared_ptr<Talon> drivetrainRearLeftMotor;
-	static std::shared_ptr<Talon> drivetrainFrontRightMotor;
-	static std::shared_ptr<Talon> drivetrainRearRightMotor;
-	//robot drivetrain
-	static std::shared_ptr<frc::RobotDrive> drivetrainChassis;
 
-	static std::shared_ptr<frc::Encoder> drivetrainLeftEncoder;
-	static std::shared_ptr<frc::Encoder> drivetrainRightEncoder;
 
-	static std::shared_ptr<frc::DigitalInput> gearPixyDigital;
-	static std::shared_ptr<frc::AnalogInput> gearPixyAnalog;
-
-	static std::shared_ptr<frc::DoubleSolenoid> gearSolenoid;
-	static std::shared_ptr<frc::DigitalInput> gearLimitSwitch;
-
-	static std::shared_ptr<frc::DoubleSolenoid> gearActiveRelease;
-
-	static std::shared_ptr<frc::DoubleSolenoid> drivetrainShift;
 
 	static std::shared_ptr<CANTalon> shooterLeftFlywheel;
 	static std::shared_ptr<CANTalon> shooterRightFlywheel;
+	static std::shared_ptr<CANTalon> shooterTopBoosterWheel;
+	static std::shared_ptr<CANTalon> shooterBottomBoosterWheel;
 	static std::shared_ptr<CANTalon> shooterTurretSwivel;
 	static std::shared_ptr<CANTalon> shooterSpinCycleFeed;
 	static std::shared_ptr<frc::DoubleSolenoid> shooterHoodActuator;

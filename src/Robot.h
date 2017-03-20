@@ -1,12 +1,14 @@
 #ifndef SRC_ROBOT_H_
 #define SRC_ROBOT_H_
 
+#include <string>
 #include "WPILib.h"
 #include "RobotMap.h"
 #include "Commands/Command.h"
 #include "LiveWindow/LiveWindow.h"
 #include "Subsystems/Shooter.h"
 #include "OI.h"
+
 //class declaration of the robot
 class Robot : public IterativeRobot {
 public:
@@ -29,6 +31,7 @@ virtual void TestPeriodic();
 
 private:
 	// true if using the autonomous chooser
+	std::string GetStringFromDouble(double num,int precision);
 	bool chooser;
 };
 #endif

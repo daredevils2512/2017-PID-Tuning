@@ -13,6 +13,8 @@ private:
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<CANTalon> leftFlywheel;
 	std::shared_ptr<CANTalon> rightFlywheel;
+	std::shared_ptr<CANTalon> topBoosterWheel;
+	std::shared_ptr<CANTalon> bottomBoosterWheel;
 	std::shared_ptr<CANTalon> turretSwivel;
 	std::shared_ptr<CANTalon> spinCycleFeed;
 	std::shared_ptr<frc::DoubleSolenoid> hoodActuator;
@@ -26,6 +28,7 @@ public:
 	void SetFlywheelSpeed(double speed);
 	void SetSpinCycleFeedSpeed(double speed);
 	void SetSwivelSpeed(double speed);
+	void RunBoosters(double speed);
 	double GetSwivelPosition();
 	void ActuateHood(frc::DoubleSolenoid::Value direction);
 	bool IsHoodActuated();

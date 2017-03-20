@@ -6,10 +6,10 @@
 
 class UpdatePIDValue : public CommandBase {
 private:
-	double incBy;
+	long double incBy;
 	bool isIncrementationValue;
 public:
-	UpdatePIDValue(double incBy, bool isIncrementationValue);
+	UpdatePIDValue(long double incBy, bool isIncrementationValue);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
